@@ -1,0 +1,55 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Portfolio / Almería Ice Network</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css?v=4"></head><body><header><div class="brand">F<span style="color:var(--ice)">/</span> GIS <b>PORTFOLIO_</b></div><nav class="top"><a href="#work">PROJECTS</a><a href="#about">ABOUT</a><a href="#contact">CONTACT</a></nav></header><main id="map"><canvas id="roads"></canvas><div class="overlay"></div><div class="hero"><div class="eyebrow">// DATA · GIS · CREATIVE CODING</div><h1>Mapping<br><em>connections.</em></h1><p>Explorando la intersección entre los datos, el territorio y la visualización interactiva. Explora mi trabajo a través de mapas, análisis espacial y visualizaciones.</p><div class="actions"><button class="btn" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">EXPLORE WORK ↗</button><button class="btn secondary" onclick="resetView()">RESET MAP ↺</button></div></div><div class="hint">ALMERÍA / SPAIN<br>MOVE CURSOR TO LIGHT UP STREETS</div><div class="status" id="status"><span>●</span> CARGANDO CALLES DE ALMERÍA</div><div class="hud">36.8402° N / 2.4679° W<br><strong>ICE NETWORK / V7</strong><br><a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a></div></main><section id="work"><small style="color:var(--mint)">01 / SELECTED WORK</small><h2>Spatial stories & data projects.</h2><p>Una selección de proyectos de cartografía, análisis espacial, visualización de datos y desarrollo interactivo.</p><div class="cards"><div class="card"><small>01 / GIS + DATA</small><h3>Forest Intelligence</h3><p>Inventario forestal, LiDAR y análisis espacial para la gestión de plantaciones.</p></div><div class="card"><small>02 / TRANSPORT</small><h3>Moving Networks</h3><p>Redes de movilidad, rutas y mapas temporales interactivos.</p></div><div class="card"><small>03 / CARTOGRAPHY</small><h3>30DayMapChallenge</h3><p>30 días de experimentación con datos abiertos y mapas.</p></div></div></section><section id="about" lang="en" aria-labelledby="about-heading">
+  <small class="about-label">02 / ABOUT ME</small>
+  <h2 id="about-heading">Turning spatial data into meaningful insights.</h2>
+  <ul class="about-expertise" aria-label="Areas of expertise">
+    <li>Spatial Data Engineering</li>
+    <li>Geospatial Analysis</li>
+    <li>Data Visualization</li>
+  </ul>
+  <div class="about-copy">
+    <p>I'm a Spatial Data Engineer &amp; Geospatial Analyst working in the forestry sector, passionate about spatial analysis, geospatial technologies, and transforming complex data into meaningful information.</p>
+    <p>My background is in Environmental Sciences, followed by a Master's degree in Spatial Engineering at the University of Twente in the Netherlands, where I worked on projects involving spatial analysis, geographic modelling, and geospatial technologies.</p>
+    <p>Today, I combine spatial data engineering, data analysis, and process automation to integrate different sources of information, build efficient data workflows, and develop tools that support better decision-making in forestry management.</p>
+    <p>Beyond my professional work, I enjoy experimenting with new datasets, exploring spatial patterns, and creating maps that tell stories. This portfolio is a collection of those explorations.</p>
+  </div>
+</section><section id="toolkit" lang="en" aria-labelledby="tools-heading">
+  <small class="tools-label">03 / TOOLKIT</small>
+  <h2 id="tools-heading">Tools &amp; Technologies</h2>
+  <div class="tools-grid">
+    <article class="tool-category">
+      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/></svg>
+      <h3>Data Engineering &amp; Databases</h3>
+      <ul>
+        <li>PostgreSQL · PostGIS · SQL</li>
+        <li>ETL Pipelines · Data Modelling · Data Integration</li>
+      </ul>
+    </article>
+    <article class="tool-category">
+      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3ZM9 3v15M15 6v15"/></svg>
+      <h3>GIS &amp; Spatial Analysis</h3>
+      <ul>
+        <li>QGIS · R (sf) · Spatial SQL</li>
+        <li>Network Analysis · Spatial Modelling · Remote Sensing · H3</li>
+      </ul>
+    </article>
+    <article class="tool-category">
+      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></svg>
+      <h3>Programming &amp; Automation</h3>
+      <ul>
+        <li>R · Python · SQL</li>
+        <li>Git · GitLab · GitHub</li>
+        <li>Process Automation</li>
+      </ul>
+    </article>
+    <article class="tool-category">
+      <svg class="tool-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 16v-4m5 4V8m5 8v-6"/></svg>
+      <h3>Data Visualization &amp; Applications</h3>
+      <ul>
+        <li>R Shiny · Power BI · DAX</li>
+        <li>Leaflet · ggplot2 · Quarto</li>
+        <li>Interactive Dashboards</li>
+      </ul>
+    </article>
+  </div>
+</section><section id="challenge"><small style="color:var(--mint)">04 / 30DAYMAPCHALLENGE</small><h2>30 maps. 30 experiments.</h2><p>Un espacio para explorar nuevas formas de contar historias a través de mapas y datos.</p><div id="challenge-gallery" class="cards" aria-live="polite"></div></section><section id="contact"><small style="color:var(--mint)">05 / NETWORKING</small><h2>Let's connect.</h2><p>Abierto a conectar con profesionales de GIS, visualización de datos, tecnología geoespacial y análisis forestal.</p><p>LinkedIn y GitHub: enlaces pendientes de configurar.</p></section><footer>PORTFOLIO / ALMERÍA ICE NETWORK — MAP DATA © OPENSTREETMAP CONTRIBUTORS</footer>
+<script src="js/main.js?v=4" defer></script></body></html>
