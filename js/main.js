@@ -2,7 +2,6 @@
 const canvas = document.getElementById('roads');
 const ctx = canvas.getContext('2d');
 const main = document.getElementById('map');
-const status = document.getElementById('status');
 const base = document.createElement('canvas');
 const lit = document.createElement('canvas');
 const glow = document.createElement('canvas');
@@ -49,14 +48,12 @@ function cacheStreets() {
     baseContext.clearRect(0, 0, width, height);
     litContext.clearRect(0, 0, width, height);
     const paths = [new Path2D(), new Path2D()];
-    let count = 0;
     for (const road of geometry) {
         const points = road.coordinates.map(project);
         if (points.every(p => p[0] < 0) || points.every(p => p[0] > width) ||
             points.every(p => p[1] < 0) || points.every(p => p[1] > height)) continue;
         const path = paths[road.major ? 1 : 0];
         points.forEach(([x, y], i) => i ? path.lineTo(x, y) : path.moveTo(x, y));
-        count++;
     }
     for (const [i, path] of paths.entries()) {
         baseContext.strokeStyle = i ? 'rgba(115,217,226,.58)' : 'rgba(110,168,190,.36)';
@@ -68,7 +65,6 @@ function cacheStreets() {
         litContext.lineJoin = litContext.lineCap = 'round';
         litContext.stroke(path);
     }
-    if (geometry.length) status.textContent = `● ALMERÍA / OPENSTREETMAP · ${count} VÍAS`;
 }
 
 function draw() {
@@ -113,11 +109,6 @@ new IntersectionObserver(([entry]) => {
 }).observe(main);
 document.addEventListener('visibilitychange', scheduleDraw);
 motionPreference.addEventListener('change', () => { pointer = null; scheduleDraw(); });
-function resetView() {
-    pointer = null;
-    scheduleDraw();
-    window.scrollTo({top: 0, behavior: motionPreference.matches ? 'instant' : 'smooth'});
-}
 async function loadStreets() {
     try {
         const response = await fetch('assets/data/almeria-roads.geojson');
@@ -135,7 +126,7 @@ async function loadStreets() {
         cacheStreets();
         scheduleDraw();
     } catch (error) {
-        status.textContent = '○ NO SE HAN PODIDO CARGAR LAS CALLES DE ALMERÍA';
+        console.warn('No se han podido cargar las calles de Almería.', error);
     }
 }
 resize();
