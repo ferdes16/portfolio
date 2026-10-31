@@ -35,7 +35,9 @@ R · Python · SQL · PostgreSQL / PostGIS · QGIS · ggplot2 · Leaflet · Shin
 
 Interested in GIS, spatial data or cartography? Get in touch:
 
-**[fernandofp006@gmail.com](mailto:fernandofp006@gmail.com)**
+- **Email:** [fernandofp006@gmail.com](mailto:fernandofp006@gmail.com)
+- **X / Twitter:** [@MappedByFer](https://x.com/MappedByFer)
+- **LinkedIn:** [Fernando Fernández](https://www.linkedin.com/in/fernandofernandezp/)
 
 ## Data and credits
 
