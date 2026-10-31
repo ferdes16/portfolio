@@ -4,7 +4,9 @@ async function loadChallenge() {
     const count = document.getElementById('gallery-count');
     const siteRoot = new URL(gallery.dataset.root || './', document.baseURI);
     try {
-        const response = await fetch(new URL('data/maps.json', siteRoot));
+        const catalogUrl = new URL('data/maps.json', siteRoot);
+        catalogUrl.searchParams.set('_', Date.now().toString());
+        const response = await fetch(catalogUrl, { cache: 'no-store' });
         if (!response.ok) throw Error('Maps unavailable');
         const entries = await response.json();
         const maps = entries.filter(map => map.status === 'published')
