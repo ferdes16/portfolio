@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "id": "2026-06-vintage",
+    "edition": 2026,
+    "day": 6,
+    "theme": "Vintage",
+    "title": "Almería in pastel red",
+    "description": "A vintage-inspired portrait of Almería, tracing its streets, buildings and harbour in pastel red and warm cream.",
+    "status": "published",
+    "thumbnail": "maps/2026/day-06-vintage/thumbnail.png",
+    "url": "maps/2026/day-06-vintage/index.html"
+  }
+]

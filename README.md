@@ -17,8 +17,10 @@ Open http://localhost:8000. HTTP is required to load the JSON data.
 
 - `index.html`: home, projects, about, tools, map collection and contact.
 - `css/style.css`: layout, responsive styles and typography.
-- `js/main.js`: one visible street canvas, cursor highlight and map gallery.
-- `data/maps.json`: public map catalogue; initially empty.
+- `js/main.js`: one visible street canvas and cursor highlight.
+- `js/gallery.js`: published map cards on the collection page.
+- `challenge/index.html`: dedicated #30DayMapChallenge gallery.
+- `data/maps.json`: public map catalogue; Day 06 is published as a live example.
 - `maps/<edition>/<day-theme>/`: published images and map detail pages.
 - `assets/data/almeria-roads.geojson`: local Almería street data.
 
@@ -64,4 +66,4 @@ Only entries with `status: "published"` appear in the gallery. `status: "draft"`
 
 The status field does not schedule a future release. To keep a map truly unreleased, retain the draft in `gis-map-lab` and publish manually on the intended day. Automatic scheduled deployment can be added separately if wanted; no scheduled workflow is currently configured.
 
-Project cards and contact links still contain placeholder content; replace them with reviewed projects and actual contact details as they become available.
+PROJECTS contains one #30DayMapChallenge entry linking to `challenge/`. Each published gallery card opens a map detail page. Day 06 is available at `maps/2026/day-06-vintage/`. Contact email is configured; Twitter/X and LinkedIn profile URLs are pending owner input.
