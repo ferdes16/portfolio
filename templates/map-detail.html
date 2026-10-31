@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{MAP_TITLE}} · {{DAY_AND_THEME}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../css/style.css?v=9">
+</head>
+<body class="map-detail-page">
+  <header>
+    <a class="brand" href="../../../index.html" aria-label="Home">HOME</a>
+    <nav class="top" aria-label="Main navigation"><a href="../../../index.html#work">PROJECTS</a><a href="../../../index.html#about">ABOUT</a><a href="../../../index.html#contact">CONTACT</a></nav>
+  </header>
+  <main class="map-detail-main">
+    <a class="back-link" href="../../../challenge/">← Back to the gallery</a>
+    <div class="detail-title">
+      <div class="eyebrow">{{CHALLENGE_LABEL}}</div>
+      <h1>{{MAP_TITLE}}</h1>
+    </div>
+    <div class="detail-overview">
+      <figure class="map-preview">
+        <a href="map.png" target="_blank" rel="noopener" aria-label="View the full-size map">
+          <img src="thumbnail.png" width="636" height="900" alt="{{IMAGE_ALT}}">
+        </a>
+        <figcaption>Map preview · Select the image to view it at full size.</figcaption>
+      </figure>
+      <div class="detail-summary">
+        <h2>{{SUMMARY_HEADING}}</h2>
+        <p>{{SUMMARY}}</p>
+        <dl class="detail-meta">
+          <div><dt>Location</dt><dd>{{LOCATION}}</dd></div>
+          <div><dt>Challenge</dt><dd>{{DAY_AND_THEME}}</dd></div>
+          <div><dt>Tools</dt><dd>{{TOOLS}}</dd></div>
+          <div><dt>Data</dt><dd>{{DATA_SUMMARY}}</dd></div>
+        </dl>
+        <div class="detail-actions">
+          <a class="btn" href="map.png" target="_blank" rel="noopener">VIEW FULL IMAGE ↗</a>
+          <a class="btn" href="map.pdf" download>DOWNLOAD PDF ↓</a>
+        </div>
+      </div>
+    </div>
+    <div class="detail-notes">
+      <section aria-labelledby="idea-heading">
+        <h2 id="idea-heading">The idea</h2>
+        <p>{{IDEA}}</p>
+      </section>
+      <section aria-labelledby="method-heading">
+        <h2 id="method-heading">How it was made</h2>
+        <p>{{METHOD}}</p>
+      </section>
+      <section aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Sources &amp; limitations</h2>
+        <p>{{SOURCES_AND_LIMITATIONS_HTML}}</p>
+      </section>
+    </div>
+  </main>
+  <footer>GIS &amp; DATA VISUALIZATION PORTFOLIO — {{FOOTER_ATTRIBUTION_HTML}}</footer>
+</body>
+</html>

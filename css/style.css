@@ -86,8 +86,7 @@ section { scroll-margin-top: 100px; }
 
 /* One project entry leads to the dedicated map gallery. */
 .project-grid { max-width: 800px; margin-top: 32px; }
-a.project-collection { display: grid; grid-template-columns: 180px minmax(0,1fr); align-items: center; gap: 30px; color: var(--txt); text-decoration: none; }
-.project-collection img { height: 240px; object-fit: contain; }
+a.project-collection { display: block; color: var(--txt); text-decoration: none; }
 .project-collection h3 { margin: 16px 0; font-size: clamp(20px, 2.6vw, 28px); overflow-wrap: anywhere; }
 .card-cta { display: inline-block; color: var(--ice); margin-top: 14px; font-size: 12px; }
 .contact-links { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 20px 34px; }
@@ -106,8 +105,40 @@ a.map-card { color: var(--txt); text-decoration: none; }
 .map-card h2 { font-size: 22px; line-height: 1.4; margin: 14px 0; letter-spacing: -.025em; }
 .map-card p { font-size: 12px; }
 @media (max-width: 600px) {
-  a.project-collection { grid-template-columns: 1fr; gap: 16px; }
-  .project-collection img { height: 260px; }
   .collection-page .collection-main { padding-top: 155px; }
   .contact-links { flex-direction: column; gap: 8px; }
+}
+
+/* Shared map-detail layout: all maps use the portfolio theme, not poster colors. */
+.map-detail-page { color-scheme: dark; }
+.map-detail-page .map-detail-main { height: auto; min-height: calc(100svh - 90px); overflow: visible; background: none; max-width: 1400px; margin: auto; padding: 150px 6% 80px; }
+.detail-title h1 { font-size: clamp(30px, 4.2vw, 50px); line-height: 1.2; letter-spacing: -.045em; margin: 18px 0 36px; }
+.detail-overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.map-preview { margin: 0; padding: 24px; background: #0d1823; border: 1px solid #294250; text-align: center; }
+.map-preview > a { display: inline-block; max-width: 100%; }
+.map-preview img { display: block; max-width: 100%; width: auto; height: auto; max-height: 480px; margin: auto; }
+.map-preview figcaption { color: var(--mut); font-size: 10px; line-height: 1.8; margin-top: 18px; }
+.detail-summary h2 { font-size: 22px; line-height: 1.5; margin: 0 0 18px; }
+.detail-summary p { font-size: 13px; line-height: 1.9; color: #a7bac6; }
+.detail-meta { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 18px; margin: 30px 0; }
+.detail-meta dt { color: var(--mint); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+.detail-meta dd { color: var(--txt); font-size: 12px; line-height: 1.8; margin: 0; }
+.detail-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.detail-actions a { display: inline-block; text-decoration: none; }
+.detail-notes { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; margin-top: 48px; padding-top: 36px; border-top: 1px solid #1e3340; }
+.map-detail-main .detail-notes section { padding: 0; margin: 0; max-width: none; border: 0; }
+.detail-notes h2 { font-size: 17px; line-height: 1.5; margin: 0 0 16px; }
+.detail-notes p { font-size: 12px; line-height: 1.9; color: #a7bac6; margin: 0; }
+.detail-notes a { color: var(--ice); text-underline-offset: 3px; }
+@media (max-width: 900px) {
+  .detail-overview { gap: 28px; }
+  .detail-notes { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .detail-overview { grid-template-columns: 1fr; }
+  .map-preview img { max-height: 380px; }
+}
+@media (max-width: 600px) {
+  .map-detail-page .map-detail-main { padding-top: 155px; }
+  .detail-meta { gap: 20px 12px; }
 }

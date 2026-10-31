@@ -4,41 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Almería in pastel red · Day 06 — Vintage</title>
-  <meta name="description" content="A vintage-inspired map of Almería, Spain, built in R using OpenStreetMap streets, buildings and coastline.">
-  <style>
-    :root{color-scheme:light;--paper:#f5efdc;--ink:#433e34;--accent:#a25f58}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 system-ui,sans-serif}main{max-width:1050px;margin:auto;padding:32px 24px 64px}a{color:var(--accent);text-underline-offset:4px}header{margin:40px 0 30px}.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(32px,5vw,56px);line-height:1.15;letter-spacing:-.035em;margin:18px 0}h2{font-size:21px;line-height:1.4}.intro{max-width:65ch;font-size:18px}figure{margin:32px 0}figure img{display:block;width:100%;height:auto}figcaption{font-size:13px;margin-top:12px}.downloads{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0 40px}.downloads a{padding:10px 16px;border:1px solid var(--accent);text-decoration:none}.notes{max-width:74ch}section{margin:32px 0}footer{border-top:1px solid #cdbfa9;padding-top:20px;margin-top:40px;font-size:13px}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-  </style>
+  <meta name="description" content="A vintage-inspired portrait of Almería, made in R with OpenStreetMap streets, buildings and coastline.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../css/style.css?v=9">
 </head>
-<body>
-<main>
-  <a href="../../../challenge/">← Back to the map collection</a>
+<body class="map-detail-page">
   <header>
-    <div class="eyebrow">30 Day Map Challenge · 2026 · Day 06 / Vintage</div>
-    <h1>Almería in pastel red</h1>
-    <p class="intro">A vintage-inspired portrait of Almería, Spain. Streets, building footprints and the geometry of the harbour trace the city beside the Mediterranean in pastel red and warm cream.</p>
+    <a class="brand" href="../../../index.html" aria-label="Home">HOME</a>
+    <nav class="top" aria-label="Main navigation"><a href="../../../index.html#work">PROJECTS</a><a href="../../../index.html#about">ABOUT</a><a href="../../../index.html#contact">CONTACT</a></nav>
   </header>
-  <figure>
-    <img src="map.png" width="3968" height="5612" alt="A portrait map of Almería with pastel-red land, subtle darker building footprints, cream streets and a darker cream sea. The harbour piers stand out along the waterfront.">
-    <figcaption>Contemporary map data, styled as a vintage urban print.</figcaption>
-  </figure>
-  <div class="downloads"><a href="map.png" download>Download image</a><a href="map.pdf" download>Download print PDF</a></div>
-  <div class="notes">
-    <section>
-      <h2>The idea</h2>
-      <p>Let the urban fabric carry the composition: the irregular streets of the historic centre, the surrounding street grid and the strong outline of the port. A restrained palette and a geometric Futura title give the map the feel of a printed city portrait.</p>
-    </section>
-    <section>
-      <h2>How it was made</h2>
-      <p>Created in R with sf, ggplot2, grid and ragg. OpenStreetMap data was downloaded in small cached extracts, deduplicated, projected to ETRS89 / UTM zone 30N (EPSG:25830) and clipped to the chosen composition.</p>
-      <p>The coastline defines the land and harbour polygons. Road line widths follow a simple hierarchy. A small cartographic smoothing adjustment softens angular road segments and roundabouts while retaining their original connection nodes. Buildings use a darker, low-contrast shade of red.</p>
-    </section>
-    <section>
-      <h2>Sources and limitations</h2>
-      <p>Street, building and coastline data: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>, available under the Open Database License (ODbL). Downloaded on 30 October 2026.</p>
-      <p>This is contemporary cartography with vintage styling, not a reconstruction of historical Almería. The crop covers part of the city, not the entire municipality. OpenStreetMap coverage varies; this version uses closed building ways and may omit buildings represented only by relations. The smoothed lines are for display and should not be used for routing or surveying.</p>
-    </section>
-  </div>
-  <footer>Map design: GIS Map Lab · #30DayMapChallenge · Day 6: Vintage<br>Map data: © OpenStreetMap contributors · <a href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a></footer>
-</main>
+  <main class="map-detail-main">
+    <a class="back-link" href="../../../challenge/">← Back to the gallery</a>
+    <div class="detail-title">
+      <div class="eyebrow">#30DAYMAPCHALLENGE / 2026 / DAY 06 / VINTAGE</div>
+      <h1>Almería in pastel red</h1>
+    </div>
+    <div class="detail-overview">
+      <figure class="map-preview">
+        <a href="map.png" target="_blank" rel="noopener" aria-label="View the full-size Almería map">
+          <img src="thumbnail.png" width="636" height="900" alt="Almería in pastel red: cream streets, subtle building footprints and a darker cream sea, with the harbour along the waterfront.">
+        </a>
+        <figcaption>Map preview · Select the image to view it at full size.</figcaption>
+      </figure>
+      <div class="detail-summary">
+        <h2>A vintage-inspired city portrait.</h2>
+        <p>Streets, buildings and the geometry of the harbour trace Almería beside the Mediterranean. Pastel red, warm cream and a geometric Futura title give contemporary map data the feel of an urban print.</p>
+        <dl class="detail-meta">
+          <div><dt>Location</dt><dd>Almería, Spain</dd></div>
+          <div><dt>Challenge</dt><dd>Day 06 · Vintage</dd></div>
+          <div><dt>Tools</dt><dd>R · sf · ggplot2 · ragg</dd></div>
+          <div><dt>Data</dt><dd>OpenStreetMap · October 2026</dd></div>
+        </dl>
+        <div class="detail-actions">
+          <a class="btn" href="map.png" target="_blank" rel="noopener">VIEW FULL IMAGE ↗</a>
+          <a class="btn" href="map.pdf" download>DOWNLOAD PDF ↓</a>
+        </div>
+      </div>
+    </div>
+    <div class="detail-notes">
+      <section aria-labelledby="idea-heading">
+        <h2 id="idea-heading">The idea</h2>
+        <p>Let the urban fabric carry the composition: the irregular streets of the historic centre, the surrounding street grid and the strong outline of the port. The map explores the visual identity of the city through a restrained print-inspired design.</p>
+      </section>
+      <section aria-labelledby="method-heading">
+        <h2 id="method-heading">How it was made</h2>
+        <p>OpenStreetMap extracts were deduplicated, projected to ETRS89 / UTM zone 30N and clipped in R. Road hierarchy controls line width, buildings add subtle texture, and the coastline separates land from sea. Small display-only curve adjustments soften angular roads and roundabouts while retaining connection nodes.</p>
+      </section>
+      <section aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Sources &amp; limitations</h2>
+        <p>Data: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>, ODbL, downloaded 30 October 2026. This is contemporary mapping with vintage styling, not a historical reconstruction. Coverage varies, the crop shows part of the city, and relation-only buildings may be omitted. Smoothed lines are for display, not routing or surveying.</p>
+      </section>
+    </div>
+  </main>
+  <footer>GIS &amp; DATA VISUALIZATION PORTFOLIO — MAP DATA <a href="https://www.openstreetmap.org/copyright">© OPENSTREETMAP CONTRIBUTORS</a></footer>
 </body>
 </html>

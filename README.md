@@ -67,3 +67,9 @@ Only entries with `status: "published"` appear in the gallery. `status: "draft"`
 The status field does not schedule a future release. To keep a map truly unreleased, retain the draft in `gis-map-lab` and publish manually on the intended day. Automatic scheduled deployment can be added separately if wanted; no scheduled workflow is currently configured.
 
 PROJECTS contains one #30DayMapChallenge entry linking to `challenge/`. Each published gallery card opens a map detail page. Day 06 is available at `maps/2026/day-06-vintage/`. Contact email is configured; Twitter/X and LinkedIn profile URLs are pending owner input.
+
+## Shared map-detail design
+
+All map detail pages use `css/style.css` with `body.map-detail-page` and the shared portfolio navigation. Start from `templates/map-detail.html`, replace every `{{...}}` token, and save it as `maps/<edition>/<day-theme>/index.html`. Keep the same preview/summary, metadata, downloads and method/source sections for every map. Do not embed a map-specific poster palette as the page theme. The artwork is a bounded thumbnail preview; the full-resolution image and PDF are separate links. Adjust the source attribution and optional download links for the actual map.
+
+The project collection card on the homepage is text-only and links to the gallery. Map thumbnails appear inside the gallery and detail pages.
