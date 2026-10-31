@@ -1,57 +1,67 @@
 # GIS & Data Visualization Portfolio
 
-Portfolio estático basado en Almería Ice Soft Glow V7. La referencia original se conserva en `portfolio_v7_almeria_ice_soft_glow.html`.
+A static portfolio deployed with GitHub Pages at https://ferdes16.github.io/.
+All visitor-facing copy is in English. The original design reference is retained in `portfolio_v7_almeria_ice_soft_glow.html` as an historical source file.
 
-## Vista local
+## Local preview
 
-Desde la raíz del proyecto:
+From the repository root:
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Abrir http://localhost:8000. Es necesario servir por HTTP para cargar los JSON.
+Open http://localhost:8000. HTTP is required to load the JSON data.
 
-## Archivos
+## Structure
 
-- `index.html`: portada y secciones.
-- `css/style.css`: diseño y adaptación móvil.
-- `js/main.js`: canvas, navegación y galería.
-- `data/maps.json`: catálogo del 30 Day Map Challenge; inicialmente vacío.
-- `maps/<edicion>/<dia-tema>/`: imágenes y páginas de cada mapa.
-- `assets/data/almeria-roads.geojson`: calles locales de Almería (extracto OSM incluido).
+- `index.html`: home, projects, about, tools, map collection and contact.
+- `css/style.css`: layout, responsive styles and typography.
+- `js/main.js`: one visible street canvas, cursor highlight and map gallery.
+- `data/maps.json`: public map catalogue; initially empty.
+- `maps/<edition>/<day-theme>/`: published images and map detail pages.
+- `assets/data/almeria-roads.geojson`: local Almería street data.
 
-## Calles de Almería
+## Street data
 
-Ejecutar una vez, con conexión a Internet:
+Run `python3 scripts/download_roads.py` with an internet connection to refresh the Almería OSM extract. It downloads small API sectors and subdivides responses exceeding the node limit, then exports EPSG:4326 GeoJSON. The download covers west -2.499, south 36.818, east -2.425, north 36.862. Keep the GeoJSON in Git so visitors load it locally rather than querying a third-party map service. Source downloads are cached locally and excluded from Git. Empty downloads do not replace the existing file.
 
-```sh
-python3 scripts/download_roads.py
-```
+A QGIS/Geofabrik extract clipped to the same area is an alternative. Keep `highway` or `fclass` attributes for road hierarchy. If the source fails, the page remains usable without inventing a street network.
 
-El script descarga sectores pequeños desde la API directa de OpenStreetMap, subdivide las áreas que superan el límite de nodos y convierte las vías a GeoJSON en EPSG:4326, conservando solo geometría, identificador y tipo de vía. Área: oeste -2.499, sur 36.818, este -2.425, norte 36.862. Guarda el resultado en el repositorio para que las visitas no consulten servicios externos. Las descargas se guardan en una caché local excluida de Git. No reemplaza el archivo si la respuesta no contiene vías.
+Data: © OpenStreetMap contributors, ODbL; https://www.openstreetmap.org/copyright. Retain attribution on published pages and data exports.
 
-Alternativa en QGIS: cargar las carreteras de Geofabrik, recortar al área indicada, exportar líneas como GeoJSON en EPSG:4326 y guardar con el mismo nombre. Conservar `highway` o `fclass` para distinguir vías principales. No es necesario publicar los shapefiles.
+## Preparing a map privately
 
-Hasta disponer del GeoJSON se muestra una red abstracta, identificada como tal. Datos OSM: © OpenStreetMap contributors, licencia ODbL; https://www.openstreetmap.org/copyright. Mantener esta atribución al publicar o redistribuir el extracto.
+1. Finish and approve the map in the private `gis-map-lab` repository.
+2. Prepare a release folder there containing the final image, thumbnail, an English detail page and a catalogue-entry JSON file.
+3. Include a short description, methodology, tools, data sources, attribution and limitations.
+4. Keep processing scripts private by default. A public code link is optional and must point to a reviewed public copy, never a private-repository link.
+5. Preview locally. Do not push unreleased assets or metadata to this public repository if they must remain confidential.
 
-## Añadir mapas
+## Publishing a map manually
 
-Crear los archivos en `maps/` y añadir entradas a `data/maps.json`:
+On the intended publication day, copy the approved release folder to `maps/<edition>/<day-theme>/`, append its entry to the array in `data/maps.json`, and set `status` to `published`:
 
 ```json
-[
-  {
-    "id": "2026-01-points",
-    "edition": 2026,
-    "day": 1,
-    "theme": "Points",
-    "title": "Título del mapa",
-    "description": "Qué representa y cómo se realizó.",
-    "thumbnail": "maps/2026/day-01-points/thumbnail.webp",
-    "url": "maps/2026/day-01-points/index.html"
-  }
-]
+{
+  "id": "2026-06-vintage",
+  "edition": 2026,
+  "day": 6,
+  "theme": "Vintage",
+  "title": "Almería in pastel red",
+  "description": "A vintage-inspired portrait of Almería, tracing its streets, buildings and harbour in pastel red and warm cream.",
+  "status": "published",
+  "thumbnail": "maps/2026/day-06-vintage/thumbnail.png",
+  "url": "maps/2026/day-06-vintage/index.html"
+}
 ```
 
-La página de detalle debe incluir el mapa, metodología, herramientas, fuentes y créditos. Los temas y fechas del ejemplo son orientativos. Las tarjetas de proyectos y el texto de perfil de la propuesta siguen siendo contenido de muestra; configurar también los enlaces de contacto antes de publicar.
+Commit and push after publication approval; GitHub Pages deploys the changes. Check the page, assets and gallery entry, then record the public URL in the private map README and Issue.
+
+## Visibility and timing
+
+Only entries with `status: "published"` appear in the gallery. `status: "draft"`, missing status or any other value hides a gallery card. This is not privacy: any files pushed to this public repository remain accessible directly and through Git history. Hiding a card does not unpublish its detail page or erase prior releases.
+
+The status field does not schedule a future release. To keep a map truly unreleased, retain the draft in `gis-map-lab` and publish manually on the intended day. Automatic scheduled deployment can be added separately if wanted; no scheduled workflow is currently configured.
+
+Project cards and contact links still contain placeholder content; replace them with reviewed projects and actual contact details as they become available.

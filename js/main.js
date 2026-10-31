@@ -126,10 +126,46 @@ async function loadStreets() {
         cacheStreets();
         scheduleDraw();
     } catch (error) {
-        console.warn('No se han podido cargar las calles de Almería.', error);
+        console.warn('Unable to load the Almería street data.', error);
     }
 }
 resize();
 loadStreets();
 
-async function loadChallenge(){const gallery=document.getElementById('challenge-gallery');try{const response=await fetch('data/maps.json');if(!response.ok)throw Error('Maps unavailable');const maps=await response.json();if(!maps.length){gallery.className='empty-state';gallery.textContent='Colección en preparación. Próximamente: mapas, procesos y fuentes del 30 Day Map Challenge.';return}for(const map of maps){const card=document.createElement('article');card.className='card';const image=document.createElement('img');image.src=map.thumbnail;image.alt=map.title;image.loading='lazy';const meta=document.createElement('small');meta.textContent=`${map.edition} / DÍA ${map.day} / ${map.theme}`;const heading=document.createElement('h3');const link=document.createElement('a');link.href=map.url;link.textContent=map.title;heading.append(link);const description=document.createElement('p');description.textContent=map.description;card.append(image,meta,heading,description);gallery.append(card)}}catch(error){gallery.textContent='No se ha podido cargar la colección.'}}loadChallenge();
+async function loadChallenge() {
+    const gallery = document.getElementById('challenge-gallery');
+    try {
+        const response = await fetch('data/maps.json');
+        if (!response.ok) throw Error('Maps unavailable');
+        const entries = await response.json();
+        // A gallery filter, not an access-control mechanism. Keep unreleased assets private.
+        const maps = entries.filter(map => map.status === 'published');
+        if (!maps.length) {
+            gallery.className = 'empty-state';
+            gallery.textContent = 'Collection in progress. Maps, methods and sources from the 30 Day Map Challenge will appear here.';
+            return;
+        }
+        for (const map of maps) {
+            const card = document.createElement('article');
+            card.className = 'card';
+            const image = document.createElement('img');
+            image.src = map.thumbnail;
+            image.alt = map.title;
+            image.loading = 'lazy';
+            const meta = document.createElement('small');
+            meta.textContent = `${map.edition} / DAY ${map.day} / ${map.theme}`;
+            const heading = document.createElement('h3');
+            const link = document.createElement('a');
+            link.href = map.url;
+            link.textContent = map.title;
+            heading.append(link);
+            const description = document.createElement('p');
+            description.textContent = map.description;
+            card.append(image, meta, heading, description);
+            gallery.append(card);
+        }
+    } catch (error) {
+        gallery.textContent = 'The map collection could not be loaded. Please try again later.';
+    }
+}
+loadChallenge();
